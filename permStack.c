@@ -61,7 +61,6 @@ PermStack *PScreate(TYPE *array, size_t length) {
     p->array = (TYPE *)malloc(length * sizeof(TYPE));
 
     if (p->array == NULL) {
-        // DEBUG;
         free(p);
         return NULL;
     }
@@ -80,17 +79,12 @@ void PSfree(PermStack *p) {
         return;
 
     // don't free each element as they were not allocated in this file
-    if (p->array != NULL) {
-        // DEBUG;
+    if (p->array != NULL)
         free(p->array);
-    }
 
-    if (p->c != NULL) {
-        // DEBUG;
+    if (p->c != NULL)
         free(p->c);
-    }
 
-    // DEBUG;
     free(p);
 }
 
@@ -186,11 +180,8 @@ static void swap(TYPE *array, size_t i, size_t j) {
 
 static void beReady(PermStack *p) {
     // prevent memory leaks
-    if (p->c != NULL) {
-        // DEBUG;
+    if (p->c != NULL)
         free(p->c);
-        // DEBUG;
-    }
 
     p->c = (size_t *)calloc(p->length, sizeof(size_t));
     p->n = 0;
