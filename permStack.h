@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 // SECTION macros
-#define DEBUG fprintf(stderr, "This is line %d of file %s (function %s)\n",\
+#define DEBUG fprintf(stderr, "This is line %d of file %s (function %s)\n", \
                       __LINE__, __FILE__, __func__)
 
 /**
@@ -11,7 +11,7 @@
  * and: https://en.wikipedia.org/wiki/Heap%27s_algorithm
  */
 
-typedef int* TYPE;
+typedef int *TYPE;
 
 typedef struct perm_stack_t PermStack;
 
@@ -25,8 +25,8 @@ TYPE *PSPop(PermStack *p);
 // get an array (of size fact(length)) containing all permutations
 TYPE **PSGetAllPerms(PermStack *p);
 
-//
+// return false if the stack can be popped (use PSRestart to re-use)
 bool PSIsFinished(PermStack *p);
 
 // restart the permutation (NOTE: do not actually go back to the given permutation)
-void PSReastart(PermStack *p);
+void PSRestart(PermStack *p);
