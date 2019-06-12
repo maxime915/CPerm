@@ -28,11 +28,9 @@ int main(int argc, const char *argv[]) {
     size_t length = 3;
     TYPE *array = (TYPE *)malloc(length * sizeof(TYPE));
     for (int i = 0; i < length; i++)
-        array[i] = (TYPE) malloc(sizeof(int));
+        array[i] = (TYPE)malloc(sizeof(int));
 
     PermStack *p = PScreate(array, length);
-
-    // fprintf(stderr, "%p\n", p);
 
     // Do it one by one
 
@@ -49,29 +47,41 @@ int main(int argc, const char *argv[]) {
         free(copy);
     }
 
+    //  Use restart
+
+    // PSRestart(p);
+    // fprintf(stderr, "\nrestarting!\n\n");
+    // while (!PSIsFinished(p)) {
+    //     // fprintf(stderr, "running permstack\n");
+    //     TYPE *copy = PSPop(p);
+    //     if (copy == NULL) {
+    //         fprintf(stderr, "got null output\n");
+    //         continue;
+    //     }
+    //     // fprintf(stderr, "got a normal output\n");
+    //     printArray(copy, length);
+    //     // DEBUG;
+    //     free(copy);
+    // }
 
     // get all at once
 
-TYPE **list = PSGetAllPerms(p);
-    if (list == NULL) {
-        fprintf(stderr, "got null pointer\n");
-        exit(1);
-    }
-    size_t N = fact(length);
-    for (size_t i = 0; i < N; i++) {
-        fprintf(stderr, "trying for i=%zu / %zu\n", i, N);
-        printArray(list[i], length);
-        free(list[i]);
-    }
-
-    free(list);
-
-
+    // TYPE **list = PSGetAllPerms(p);
+    // if (list == NULL) {
+    //     fprintf(stderr, "got null pointer\n");
+    //     exit(1);
+    // }
+    // size_t N = fact(length);
+    // for (size_t i = 0; i < N; i++) {
+    //     fprintf(stderr, "trying for i=%zu / %zu\n", i, N);
+    //     printArray(list[i], length);
+    //     free(list[i]);
+    // }
+    // free(list);
 
     // clear
 
     PSfree(p);
-    // DEBUG;
     for (int i = 0; i < length; i++)
         free(array[i]);
     free(array);
