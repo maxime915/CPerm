@@ -116,7 +116,7 @@ TYPE *PSPop(PermStack *p) {
     // p is ready -> get next perm
 
     // -> the else block in the algorithm
-    while (! (p->c[p->n] < p->n)) {
+    while (!(p->c[p->n] < p->n)) {
         p->c[p->n] = 0;
         p->n++;
     }
@@ -126,7 +126,7 @@ TYPE *PSPop(PermStack *p) {
 
     // update finished
     if (p->n == p->length - 2 && p->c[p->length - 1] == p->length - 1)
-	p->finished = true;
+        p->finished = true;
 
     p->c[p->n]++;
     p->n = 0;
