@@ -35,15 +35,12 @@ int main(int argc, const char *argv[]) {
     // Do it one by one
 
     while (!PSIsFinished(p)) {
-        // fprintf(stderr, "running permstack\n");
         TYPE *copy = PSPop(p);
         if (copy == NULL) {
             fprintf(stderr, "got null output\n");
             continue;
         }
-        // fprintf(stderr, "got a normal output\n");
         printArray(copy, length);
-        // DEBUG;
         free(copy);
     }
 
@@ -52,15 +49,12 @@ int main(int argc, const char *argv[]) {
     // PSRestart(p);
     // fprintf(stderr, "\nrestarting!\n\n");
     // while (!PSIsFinished(p)) {
-    //     // fprintf(stderr, "running permstack\n");
     //     TYPE *copy = PSPop(p);
     //     if (copy == NULL) {
     //         fprintf(stderr, "got null output\n");
     //         continue;
     //     }
-    //     // fprintf(stderr, "got a normal output\n");
     //     printArray(copy, length);
-    //     // DEBUG;
     //     free(copy);
     // }
 
