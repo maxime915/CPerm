@@ -5,8 +5,6 @@
 // SECTION maths
 
 static size_t fact(size_t i) {
-    if (i < 0)
-        exit(1);
     if (i < 3)
         return i;
     size_t result = 1, next_result;
