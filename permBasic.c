@@ -1,12 +1,28 @@
 #include "permBasic.h"
 
-void swap(int arr[], int i, int j) {
+static void swap(int arr[], int i, int j) {
     int t = arr[i];
     arr[i] = arr[j];
     arr[j] = t;
 }
 
-void printAllPermutationREC(int arr[], int k, int length) {
+static void printArray(int arr[], int length) {
+    printf("{");
+    for (int i = 0; i < length - 1; i++)
+        printf("%d, ", arr[i]);
+    printf("%d };\n", arr[length - 1]);
+}
+
+static int *copyOfArray(int arr[], int length) {
+    int *c = (int *)malloc(length * sizeof(int));
+    if (c == NULL)
+        exit(1);
+    for (int i = 0; i < length; i++)
+        c[i] = arr[i];
+    return c;
+}
+
+static void printAllPermutationREC(int arr[], int k, int length) {
     if (k >= length)
         return;
     if (k == length - 1)
@@ -30,20 +46,4 @@ void printAllPermutation(int arr[], int length) {
     }
 
     printAllPermutationREC(arr, 0, length);
-}
-
-void printArray(int arr[], int length) {
-    printf("{");
-    for (int i = 0; i < length - 1; i++)
-        printf("%d, ", arr[i]);
-    printf("%d };\n", arr[length - 1]);
-}
-
-int *copyOfArray(int arr[], int length) {
-    int *c = (int *)malloc(length * sizeof(int));
-    if (c == NULL)
-        exit(1);
-    for (int i = 0; i < length; i++)
-        c[i] = arr[i];
-    return c;
 }
