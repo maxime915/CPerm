@@ -25,6 +25,9 @@ TYPE *PSPop(PermStack *p);
 // get an array (of size fact(length)) containing all permutations
 TYPE **PSGetAllPerms(PermStack *p);
 
+// get number of possible permutation (n!)
+size_t countPermutations(PermStack *p);
+
 // return false if the stack can be popped (use PSRestart to re-use)
 bool PSIsFinished(PermStack *p);
 

@@ -159,6 +159,10 @@ TYPE **PSGetAllPerms(PermStack *p) {
     return r;
 }
 
+size_t countPermutations(PermStack *p) {
+    return fact(p->length);
+}
+
 bool PSIsFinished(PermStack *p) {
     return p->finished;
 }
